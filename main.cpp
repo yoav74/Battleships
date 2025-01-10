@@ -10,7 +10,12 @@
 int main()
 {
     Grid MainGrid;
+    // MainGrid.PrintGrid();
+    MainGrid.placeShip(3,3,4,true,'s');
     MainGrid.PrintGrid();
+
+    // Submarine test;
+    // test.printShip();
  
 
     // // Seed the random number generator for AI placement and moves

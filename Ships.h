@@ -12,13 +12,16 @@ private:
 
 public:
     Ship(const char *shipName, int shipSize);
-    virtual ~Ship();
+    virtual ~Ship() = 0;
     virtual void takeHit();
     bool isSunk() const;
     void printShip()
     {
         std::cout << name << " " << hitsTaken << std::endl;
     }
+    char *getName() const { return name; }
+    int getSize() const { return size; }
+    int getHits() const { return hitsTaken; }
 };
 
 class Carrier : public Ship

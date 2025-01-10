@@ -11,14 +11,73 @@ Grid::Grid()
     }
 }
 
-void Grid::PrintGrid(){
-    for (int i = 0; i<MaxGrid ; i++){
-        for (int j = 0; j<MaxGrid; j++){
+void Grid::PrintGrid()
+{
+    for (int i = 0; i < MaxGrid; i++)
+    {
+        for (int j = 0; j < MaxGrid; j++)
+        {
             std::cout << cells[i][j];
         }
         std::cout << std::endl;
     }
 }
-char Grid::getCell(int row, int col) const{
-    return cells[row][col];
+bool Grid::isTileOccupied(int row, int col) const
+{
+    if (cells[row][col] == '~')
+        return false;
+    else
+        return true;
+}
+bool Grid::inBounds(int row, int col, int shipSize, bool horizontal) const
+{
+    if (horizontal == true)
+    {
+        if (col + shipSize < MaxGrid)
+        {
+            return true;
+        }
+        else
+            return false;
+    }
+    else
+    {
+        if (row + shipSize <= MaxGrid)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
+
+void Grid::placeShip(int row, int col, int shipSize, bool horizontal, char symbol){
+    if (horizontal == true){
+        for(int i = col; i <= col+shipSize; i++){
+            cells[row][i] = symbol;
+        }
+    }
+    else {
+        for (int i = row; i<=row+shipSize; i++){
+            cells[i][col] = symbol;
+        }
+    }
+}
+
+void Grid::markHit(int row, int col){
+    cells[row][col] = 'X';
+}
+
+void Grid::markMiss(int row,int col){
+    cells[row][col] = 'M';
+}
+
+char Grid::getCell(int row, int col) const
+{
+    if (row < 10 && col < 10)
+        return cells[row][col];
+    else
+        std::cout << "Error, cell out of line" << std::endl;
 }
