@@ -55,13 +55,13 @@ bool Grid::inBounds(int row, int col, int shipSize, bool horizontal) const
 
 void Grid::placeShip(int row, int col, int shipSize, bool horizontal, char symbol){
     if (horizontal == true){
-        for(int i = col; i <= col+shipSize; i++){
-            cells[row][i] = symbol;
+        for(int i = col; i < col+shipSize; i++){
+            cells[row-1][i-1] = symbol;
         }
     }
     else {
-        for (int i = row; i<=row+shipSize; i++){
-            cells[i][col] = symbol;
+        for (int i = row; i<row+shipSize; i++){
+            cells[i-1][col-1] = symbol;
         }
     }
 }

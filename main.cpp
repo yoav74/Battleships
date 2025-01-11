@@ -6,13 +6,14 @@
 // #include "AiPlayer.h"
 #include "Ships.h"
 #include "Grid.h"
+#include "Player.h"
 
 int main()
 {
-    Grid MainGrid;
-    // MainGrid.PrintGrid();
-    MainGrid.placeShip(3,3,4,true,'s');
-    MainGrid.PrintGrid();
+    Player test("yoav");
+    // test.PlaceShip(3,3,true,test.ships[3]);
+    test.placeAllShips();
+    test.displayGrid();
 
     // Submarine test;
     // test.printShip();

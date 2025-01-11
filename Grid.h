@@ -1,4 +1,5 @@
 #include <iostream>
+#pragma once
 const int MaxGrid = 10;
 
 class Grid{

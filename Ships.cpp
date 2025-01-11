@@ -3,7 +3,7 @@
 #pragma region Base
 
 Ship::Ship(const char* shipName, int shipSize){
-    name = new char[sizeof(shipName)];
+    name = new char[strlen(shipName)+1];
     strcpy(name,shipName);
     hitsTaken = 0;
     size = shipSize;
